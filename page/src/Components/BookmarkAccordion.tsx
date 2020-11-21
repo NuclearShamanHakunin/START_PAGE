@@ -28,6 +28,10 @@ const useStyles = makeStyles((theme: Theme) =>
             display: "flex",
             background: "#A9A9A9",
             justifyContent: "left",
+        },
+        icon:{
+            width: 25,
+            height: 25,
         }
     }),
 );
@@ -73,6 +77,14 @@ export default function BookmarkAccordion(props: BookmarkAccordionProps) {
                         </AccordionSummary>
                         <AccordionDetails className={classes.accordionContent}>
                             {folder.bookmarkArray.map((bookmark: Bookmark) => {
+                                let favicon: string = "";
+
+                                if(/^\d$/.test(bookmark.url[0])){
+                                    favicon = `http://${bookmark.url}/favicon.ico`
+                                }else{
+                                    favicon = `https://s2.googleusercontent.com/s2/favicons?domain_url=${bookmark.url}`
+                                }
+
                                 return (
                                     <Button
                                         className={classes.buttonCard}
@@ -80,7 +92,13 @@ export default function BookmarkAccordion(props: BookmarkAccordionProps) {
                                             window.open(`http://${bookmark.url}`, "_blank")
                                         }}
                                     >
+                                        <img
+                                            alt=''
+                                            src={favicon}
+                                            className={classes.icon}
+                                        />
                                         <Typography style={{ marginLeft: "5px" }}>{`${bookmark.name} `}</Typography>
+
                                     </Button>
                                 )
                             })}
