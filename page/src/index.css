@@ -5,9 +5,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url("Images/bg.gif") no-repeat center center fixed;;
+  background-size: 100vw 100vh;
+  background-color: darkslategray;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media (max-width: 600px) {
+  body {
+    background-size:cover;
+  }
 }

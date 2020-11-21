@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "demo 1",
+        "bookmarkArray": [
+            {
+                "id": 1,
+                "url": "www.google.com",
+                "name": "Google"
+            },
+            {
+                "id": 2,
+                "url": "www.bing.com",
+                "name": "Bing"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "demo 2",
+        "bookmarkArray": [
+            {
+                "id": 1,
+                "url": "www.bla.com",
+                "name": "bla"
+            },
+            {
+                "id": 2,
+                "url": "www.bla.com",
+                "name": "bla1"
+            },
+            {
+                "id": 3,
+                "url": "www.bla.com",
+                "name": "bla2"
+            },
+            {
+                "id": 4,
+                "url": "www.bla.com",
+                "name": "bla3"
+            }
+        ]
+    }
+]
