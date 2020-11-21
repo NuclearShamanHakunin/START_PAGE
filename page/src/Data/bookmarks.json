@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "demo 1",
+        "name": "demo-1",
         "bookmarkArray": [
             {
                 "id": 1,
@@ -17,7 +17,7 @@
     },
     {
         "id": 2,
-        "name": "demo 2",
+        "name": "demo-2",
         "bookmarkArray": [
             {
                 "id": 1,
@@ -36,7 +36,7 @@
             },
             {
                 "id": 4,
-                "url": "www.bla.com",
+                "url": "192.168.1.1",
                 "name": "bla3"
             }
         ]

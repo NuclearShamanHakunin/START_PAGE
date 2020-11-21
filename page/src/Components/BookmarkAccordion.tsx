@@ -1,15 +1,38 @@
 import React from 'react';
+
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
+
+import {Button, IconButton} from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
+
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             width: '100%',
-        }
+        },
+        accordion: {
+            opacity: 0.8
+        },
+        accordionContent: {
+            flexDirection: "row",
+            display: "flex",
+            flexWrap: "wrap"
+        },
+        buttonCard: {
+            width: 180,
+            height: 50,
+            margin: "5px",
+            flexDirection: "row",
+            display: "flex",
+            background: "#A9A9A9",
+            justifyContent: "left",
+        },
     }),
 );
 
@@ -41,8 +64,9 @@ export default function BookmarkAccordion(props: BookmarkAccordionProps) {
             {props.folderArray.map((folder: BookmarkFolder) => {
                 return (
                     <Accordion
-                        expanded={expanded === `panel${folder.id}`}
-                        onChange={handleChange(`panel${folder.id}`)}
+                        expanded={expanded === `panel${folder.id}-header`}
+                        onChange={handleChange(`panel${folder.id}-header`)}
+                        className={classes.accordion}
                     >
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
@@ -51,11 +75,24 @@ export default function BookmarkAccordion(props: BookmarkAccordionProps) {
                         >
                             <Typography>{folder.name}</Typography>
                         </AccordionSummary>
-                        {folder.bookmarkArray.map((bookmark : Bookmark) => {
-                            return(
-                                <Typography>{`${bookmark.name} `}</Typography>
-                            )
-                        })}
+                        <AccordionDetails  className={classes.accordionContent}>
+                            {folder.bookmarkArray.map((bookmark: Bookmark) => {
+                                return (
+                                    <Button 
+                                        className={classes.buttonCard}
+                                        onClick={() => {
+                                            window.open(`http://${bookmark.url}`, "_blank")
+                                        }}
+                                    >
+                                        <img
+                                            alt={undefined} 
+                                            src={`http://${bookmark.url}/favicon.ico`}
+                                        />
+                                        <Typography style={{marginLeft:"5px"}}>{`${bookmark.name} `}</Typography>
+                                    </Button>
+                                )
+                            })}
+                        </AccordionDetails >
                     </Accordion>
                 )
             })}
