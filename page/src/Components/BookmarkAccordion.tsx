@@ -4,7 +4,6 @@ import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 
 import { Button, Typography } from '@material-ui/core';
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
-
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -54,7 +53,6 @@ interface BookmarkAccordionProps {
 export default function BookmarkAccordion(props: BookmarkAccordionProps) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState<string | false>(false);
-
     const handleChange = (panel: string) => (event: React.ChangeEvent<{}>, isExpanded: boolean) => {
         setExpanded(isExpanded ? panel : false);
     };
