@@ -77,7 +77,7 @@ export default function BookmarkAccordion(props: BookmarkAccordionProps) {
                             {folder.bookmarkArray.map((bookmark: Bookmark) => {
                                 let favicon: string = "";
 
-                                if(/^\d$/.test(bookmark.url[0])){
+                                if(/^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/.test(bookmark.url)){
                                     favicon = `http://${bookmark.url}/favicon.ico`
                                 }else{
                                     favicon = `https://s2.googleusercontent.com/s2/favicons?domain_url=${bookmark.url}`
