@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Card, CardHeader, CardBody, Image } from 'grommet';
+import linkImage from '../Images/link.png'
 
 export default function BookmarkCard(props){
 
@@ -24,7 +25,7 @@ export default function BookmarkCard(props){
             }}
         >
             <Image
-                fallback=''
+                fallback={linkImage}
                 src={favicon}
                 style={{width:"25px", height:"25px"}}
             />
