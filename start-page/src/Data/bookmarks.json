@@ -43,6 +43,21 @@
                 "id": 3,
                 "url": "www.linkedin.com/learning/me",
                 "name": "LinkedIn Learning"
+            },
+            {
+                "id": 4,
+                "url": "www.udemy.com/",
+                "name": "Udemy"
+            },
+            {
+                "id": 5,
+                "url": "www.edyoda.com/",
+                "name":"Edyoda"
+            },
+            {
+                "id": 6,
+                "url":"www.real.discount",
+                "name":"Udemy discounts"
             }
         ]
     },

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import {
     Box,
     Grommet,
@@ -21,16 +21,36 @@ const App = () => {
                 size: '14px',
                 height: '20px',
             },
+            colors: {
+                focus: "#00000000"
+            }
         },
+        accordion: {
+            border: undefined,
+            icons: {
+                color:"#228BE6"
+            },
+            hover: {
+                heading: {
+                    color:"#228BE6"
+                }
+            }
+        }
     };
 
-    const [cookies, setCookie] = useCookies(['bookmarks']);
+    const [cookies, setCookie, removeCookie] = useCookies(['bookmarks']);
+
+    removeCookie("bookmarks")
+
     useEffect(() => {
-        if(cookies.bookmarks === undefined || cookies.bookmarks === ""){
-            setCookie('bookmarks', defaultBookmarkData);
-        }
-    }, [cookies.bookmarks, setCookie]);
-    const bookmarkArray = cookies.bookmarks.map( data => {
+        console.log(cookies.bookmarks)
+    }, [])
+
+    setCookie('bookmarks', defaultBookmarkData);
+
+
+
+    const bookmarkArray = cookies.bookmarks.map(data => {
         return { id: data.id, name: data.name, bookmarkArray: data.bookmarkArray }
     });
 
@@ -38,7 +58,7 @@ const App = () => {
         <Grommet theme={theme} full>
             <ResponsiveContext.Consumer>
                 {size => (
-                    <Box style={{width:"80%", marginLeft:"10%", marginTop:"3.5%"}}>
+                    <Box style={{ width: "80%", marginLeft: "10%", marginTop: "3.5%" }}>
                         <BookmarkAccordion folderArray={bookmarkArray} animate={true} />
                     </Box>
                 )}

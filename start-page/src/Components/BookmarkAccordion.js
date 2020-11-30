@@ -12,6 +12,7 @@ import {
 import { AddCircle } from "grommet-icons"
 
 import BookmarkCard from './BookmarkCard'
+import { colors } from 'grommet/themes/base';
 
 export default function BookmarkAccordion(props){
     const size = useContext(ResponsiveContext);
@@ -20,7 +21,7 @@ export default function BookmarkAccordion(props){
         <Accordion>
             {props.folderArray.map(folder => {
                 return (
-                    <AccordionPanel label={folder.name} background="#FFFFFFBF" style={{ height: "50px" }}>
+                    <AccordionPanel  label={folder.name} background="#FFFFFFBF" style={{ height: "50px" }}>
                         <Box 
                             background="#FFFFFF68"
                         >
@@ -33,13 +34,14 @@ export default function BookmarkAccordion(props){
                                 <Card
                                     style={{borderRadius:"5px", alignItems:"center", justifyContent:"center"}}
                                     height="50px"
-                                    width="xsmall"
+                                    width="70px"
+                                    hoverIndicator
                                     background="#FFFFFF88"
                                     onClick={ ()=>{
                                         alert("NEW!")
                                     }}
                                 >
-                                    <AddCircle size="40px"/>
+                                    <AddCircle size="20px"/>
                                 </Card>
                             </Grid>
                             
@@ -49,12 +51,17 @@ export default function BookmarkAccordion(props){
             })}
                 <Box 
                     background="#FFFFFFBF"
-                    style={{ height: "50px", alignItems:"center", justifyContent:"center" }}
+                    hoverIndicator
+                    style={{ 
+                        height: "30px",
+                        alignItems:"center",
+                        justifyContent:"center",
+                    }}
                     onClick={ ()=>{
                         alert("NEW!")
                     }}
                 >
-                    <AddCircle size="40px"/>
+                    <AddCircle size="20px" color="#000000AF"/>
                 </Box>
         </Accordion>
     );
